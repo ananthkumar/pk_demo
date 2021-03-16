@@ -1,6 +1,7 @@
 package com.pk.eis.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.mail.MessagingException;
 
@@ -9,10 +10,8 @@ import org.springframework.jms.JmsException;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pk.eis.IService.IEmpService;
-import com.pk.eis.IService.IMailService;
-import com.pk.eis.IService.INotificationService;
+import com.pk.eis.iservice.IEmpService;
+import com.pk.eis.iservice.INotificationService;
 import com.pk.eis.model.Employee;
 import com.pk.eis.repository.EmployeeRepo;
 
@@ -27,7 +26,7 @@ public class EmpService implements IEmpService {
 	
 	
 	public List<Employee> findAll() {
-		return (List<Employee>) employeeRepo.findAll();
+		return  employeeRepo.findAll();
 	}
 	
 	public void save(Employee emp) throws JmsException, JsonProcessingException, MessagingException {
@@ -36,7 +35,11 @@ public class EmpService implements IEmpService {
 	}
 	
 	public Employee get(Integer id) {
-        return employeeRepo.findById(id).get();
+		Optional<Employee> empOpt = employeeRepo.findById(id);
+		if(empOpt.isPresent()) {
+			return empOpt.get();
+		}
+        return null;
     }
      
     public void delete(Integer id) {

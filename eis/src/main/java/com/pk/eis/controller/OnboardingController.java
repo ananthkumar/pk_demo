@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pk.eis.iservice.IEmpService;
 import com.pk.eis.model.Employee;
 import com.pk.eis.vo.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.pk.eis.IService.IEmpService;
 
 @RestController
 public class OnboardingController {

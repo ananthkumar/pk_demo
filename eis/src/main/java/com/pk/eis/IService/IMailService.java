@@ -1,4 +1,4 @@
-package com.pk.eis.IService;
+package com.pk.eis.iservice;
 
 import javax.mail.MessagingException;
 

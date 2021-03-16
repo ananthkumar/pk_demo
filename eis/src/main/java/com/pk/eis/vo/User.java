@@ -1,6 +1,5 @@
 package com.pk.eis.vo;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import com.pk.eis.model.Employee;
@@ -19,6 +18,19 @@ public class User {
 	private String location;
 	private String phoneNum;
 	
+	public User(String name, String designation, String doj, String email, String location, String phoneNum){
+		this.name = name;
+		this.designation = designation;
+		this.doj = doj;
+		this.email = email;
+		this.location = location;
+		this.phoneNum = phoneNum;
+	}
+	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}

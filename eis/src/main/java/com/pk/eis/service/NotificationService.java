@@ -1,7 +1,5 @@
 package com.pk.eis.service;
 
-import javax.jms.Queue;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.JmsException;
@@ -10,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pk.eis.IService.INotificationService;
+import com.pk.eis.iservice.INotificationService;
 import com.pk.eis.model.Employee;
 
 @Service

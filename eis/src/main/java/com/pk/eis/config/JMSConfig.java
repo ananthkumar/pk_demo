@@ -10,16 +10,15 @@ import org.springframework.jms.core.JmsTemplate;
 	public class JMSConfig {
 
 	
-		String BROKER_URL = "tcp://localhost:61616"; 
-		String BROKER_USERNAME = "admin"; 
-		String BROKER_PASSWORD = "admin";
+		String borkerUrl = "tcp://localhost:61616"; 
+		String brokerUserName = "admin"; 
+		String brokerPwd = "admin";
 		
 		@Bean
 		public ActiveMQConnectionFactory connectionFactory(){
 		    ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
-		    connectionFactory.setBrokerURL(BROKER_URL);
-		    connectionFactory.setPassword(BROKER_USERNAME);
-		    connectionFactory.setUserName(BROKER_PASSWORD);
+		    connectionFactory.setPassword(brokerUserName);
+		    connectionFactory.setUserName(brokerPwd);
 		    return connectionFactory;
 		}
 

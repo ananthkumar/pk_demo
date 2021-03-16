@@ -1,4 +1,4 @@
-package com.pk.eis.IService;
+package com.pk.eis.iservice;
 
 import org.springframework.jms.JmsException;
 import org.springframework.stereotype.Service;

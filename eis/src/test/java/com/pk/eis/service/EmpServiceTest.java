@@ -1,8 +1,10 @@
 package com.pk.eis.service;
 
+import static org.hamcrest.CoreMatchers.any;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -14,7 +16,9 @@ import javax.mail.MessagingException;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.JmsException;
@@ -27,13 +31,13 @@ import com.pk.eis.vo.User;
 
 class EmpServiceTest {
 
-	@Autowired
+	@Mock
 	private EmployeeRepo employeeRepo;
 
-	@Autowired
-	private INotificationService iNotificationService;
+	@Mock
+	private NotificationService iNotificationService;
 	
-	@Autowired
+	@InjectMocks
 	EmpService empSerivice;
 
 	User user;
@@ -69,13 +73,17 @@ class EmpServiceTest {
 	void saveTest() throws JmsException, JsonProcessingException, MessagingException {
 		Employee empOne = user.getEmployee(user);
 		empOne.setEmpId(1);
+		
+		when(employeeRepo.save(Mockito.any())).thenReturn(empOne);
 
-		doNothing().when(employeeRepo).save(empOne);
+
+		//doNothing().when(employeeRepo).save(empOne);
 		doNothing().when(iNotificationService).send(empOne);
 		
 		//assertNotEquals(null, empSerivice.save(empOne));
+		empSerivice.save(empOne);
 
-		verify(empSerivice, times(1)).save(empOne);
+		//verify(mock(empSerivice), times(1)).save(empOne);
 
 
 	}

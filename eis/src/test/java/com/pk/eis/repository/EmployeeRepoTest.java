@@ -26,7 +26,7 @@ import com.pk.eis.vo.User;
 
 public class EmployeeRepoTest {
 
-	@Autowired
+	@Mock
 	private EmployeeRepo employeeRepo;
 
 	User user;

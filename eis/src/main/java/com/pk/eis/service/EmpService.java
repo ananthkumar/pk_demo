@@ -26,10 +26,13 @@ public class EmpService implements IEmpService {
 	
 	
 	public List<Employee> findAll() {
+		System.out.print("find emp");
+
 		return  employeeRepo.findAll();
 	}
 	
 	public void save(Employee emp) throws JmsException, JsonProcessingException, MessagingException {
+		System.out.print("save emp");
 		employeeRepo.save(emp);
 		iNotificationService.send(emp);
 	}

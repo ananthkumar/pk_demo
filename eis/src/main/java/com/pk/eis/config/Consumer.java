@@ -24,7 +24,6 @@ public class Consumer {
 	@JmsListener(destination = "inbound.queue")
 	@SendTo("outbound.queue")
 	public String receiveMessage(final String message) throws  JsonProcessingException, MessagingException {
-		System.out.println("Received message " + message);
 		ObjectMapper mapper = new ObjectMapper();
 		Employee emp = mapper.readValue(message, Employee.class);
 		iMailService.sendMail(emp);

@@ -32,7 +32,6 @@ public class EmpService implements IEmpService {
 	}
 	
 	public void save(Employee emp) throws JmsException, JsonProcessingException, MessagingException {
-		System.out.print("save emp");
 		employeeRepo.save(emp);
 		iNotificationService.send(emp);
 	}

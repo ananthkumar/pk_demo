@@ -19,47 +19,47 @@ public class EmpDependent implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int DependentId;
+	private int dependentId;
 	@Column
-	private String DependentName;
+	private String dependentName;
 	@Column
-	private String DependentRelation;
+	private String dependentRelation;
 	@Column
-	private Date DependentDob;
+	private Date dependentDob;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Employee emp;
 
 	public int getDependentId() {
-		return DependentId;
+		return dependentId;
 	}
 
 	public void setDependentId(int dependentId) {
-		DependentId = dependentId;
+		dependentId = dependentId;
 	}
 
 	public String getDependentName() {
-		return DependentName;
+		return dependentName;
 	}
 
 	public void setDependentName(String dependentName) {
-		DependentName = dependentName;
+		dependentName = dependentName;
 	}
 
 	public String getDependentRelation() {
-		return DependentRelation;
+		return dependentRelation;
 	}
 
 	public void setDependentRelation(String dependentRelation) {
-		DependentRelation = dependentRelation;
+		dependentRelation = dependentRelation;
 	}
 
 	public Date getDependentDob() {
-		return DependentDob;
+		return dependentDob;
 	}
 
 	public void setDependentDob(Date dependentDob) {
-		DependentDob = dependentDob;
+		dependentDob = dependentDob;
 	}
 
 	public Employee getEmp() {
